@@ -1,0 +1,16 @@
+.navButton {
+  color: lightblue;
+}
+
+.navButton:hover {
+  color: red;
+}
+
+.appbar {
+  background-color: black;
+}
+
+.appbar Button:hover {
+  background-color: #00adb5;
+}
+/*# sourceMappingURL=styles.css.map */

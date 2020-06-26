@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css';
+import './styles/styles.scss'
 import movieSlide from './components/movieSlide'
 import NavBar from './components/NavBar.js';
 
