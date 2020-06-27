@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Router, Route, Switch } from "react-router";
+import { createBrowserHistory } from "history";
+
+var hist = createBrowserHistory();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router  history={hist}>
     <App />
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 );
 
