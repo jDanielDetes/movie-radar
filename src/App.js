@@ -7,9 +7,7 @@ import MovieCards from './components/MovieCards'
 
 function App() {
   return (
-    <div>
-    <MovieCards/>
-    </div>
+    <div></div>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import CardHeader from './Card/CardHeader'
 import CardBody from './Card/CardBody'
 import Card from './Card/Card'
@@ -8,6 +8,7 @@ import styles from '../styles/jss/sectionCards'
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from './Grid/GridContainer'
 import GridItem from './Grid/GridItem'
+import axios from 'axios'
 
 
 
@@ -15,38 +16,67 @@ const useStyles = makeStyles(styles);
 
 function MovieCards() {
     const classes = useStyles();
+    const [movie,setMovie] = React.useState([])
+    useEffect(() =>{
+        axios.get(API)
+        .then(res =>{
+            setMovie(res.data.results)
+        })
+    },[])
+    const API="https://api.themoviedb.org/3/movie/now_playing?api_key=69da287f8d942bd5ac2693404c94e0da&language=en-US&page=1"
+
+    
+    let test = movie.map(data =>{
+        console.log(data)
+        const backgroundcolor= `https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`
+
     return (
         <div>
           <GridContainer>
-            <GridItem  sm={3} >
+            <GridItem  sm={2} >
               <Card blog color="dark">
                 <CardHeader image>
                   <a href="#pablo" onClick={e => e.preventDefault()}>
-                    <img src={color2} alt="..." />
+                    <img src={`https://image.tmdb.org/t/p/w1280/${data.poster_path}`} alt="..." />
                   </a>
                   <div
                     className={classes.coloredShadow}
                     style={{
-                      backgroundImage: `url(${color2})`,
+                      backgroundImage: `url(${backgroundcolor})`,
                       opacity: "1"
                     }}
                   />
                 </CardHeader>
                 <CardBody>
                   
-                    <h5 className={classes.cardCategory}>Action, Adventure</h5>
+               
                
                   <h3>
                     <a href="#pablo" onClick={e => e.preventDefault()}>
-                      Move title goes here
+                      {data.title}
                     </a>
+                    <h4 className={classes.cardCategory}>Release date:{data.release_date}</h4>
                   </h3>
                 </CardBody>
               </Card>
             </GridItem>
           </GridContainer>
         </div>
+    )    })
+
+    return(
+        [test]
     )
 }
 
 export default MovieCards
+
+
+
+
+
+
+
+/**
+ * 
+ */

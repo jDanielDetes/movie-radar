@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Router, Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
+import MoviePage from './views/MoviePage'
 
 var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router  history={hist}>
-    <App />
+  <Switch>
+  <Route path="/" component={MoviePage} />
+  </Switch>
   </Router>,
   document.getElementById('root')
 );
