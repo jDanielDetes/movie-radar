@@ -90,10 +90,13 @@ body {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .cards {
-  max-width: 11rem;
-  max-height: 40rem;
+  max-width: 19.3rem;
+  max-height: 35rem;
 }
 /*# sourceMappingURL=styles.css.map */
