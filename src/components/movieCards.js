@@ -12,6 +12,7 @@ import axios from 'axios'
 
 
 
+
 const useStyles = makeStyles(styles);
 
 function MovieCards() {
@@ -31,10 +32,10 @@ function MovieCards() {
         const backgroundcolor= `https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`
 
     return (
-        <div>
-          <GridContainer>
-            <GridItem  sm={2} >
-              <Card blog color="dark">
+        <div   >
+          
+            <GridItem  >
+              <Card blog color="dark"className="cards" >
                 <CardHeader image>
                   <a href="#pablo" onClick={e => e.preventDefault()}>
                     <img src={`https://image.tmdb.org/t/p/w1280/${data.poster_path}`} alt="..." />
@@ -60,12 +61,16 @@ function MovieCards() {
                 </CardBody>
               </Card>
             </GridItem>
-          </GridContainer>
+      
         </div>
     )    })
 
     return(
-        [test]
+       <div className="movieContainer">
+            
+            {[test]}
+       </div>
+     
     )
 }
 

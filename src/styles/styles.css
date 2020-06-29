@@ -19,7 +19,7 @@
 }
 
 body {
-  background-color: red;
+  background-color: #393e46;
 }
 
 .App-logo {
@@ -78,5 +78,22 @@ body {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.movieContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.cards {
+  max-width: 11rem;
+  max-height: 40rem;
 }
 /*# sourceMappingURL=styles.css.map */
