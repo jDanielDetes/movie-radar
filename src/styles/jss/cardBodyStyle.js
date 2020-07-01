@@ -13,7 +13,8 @@ const cardBodyStyle = {
     paddingTop: "40px",
     paddingBottom: "40px",
     maxWidth: "440px",
-    margin: "0 auto"
+    margin: "0 auto",
+    
   },
   cardBodyPlain: {
     paddingLeft: "5px",

@@ -17,6 +17,7 @@ export default function NavBar(props) {
 
   return (
     <Header
+    className="mainNavBar"
     brand="Primary Color"
     color="info"
     links={

@@ -9,6 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from './Grid/GridContainer'
 import GridItem from './Grid/GridItem'
 import axios from 'axios'
+import Button from './CustomButtons/Button';
+import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
 
 
 
@@ -52,11 +54,11 @@ function MovieCards() {
                   
                
                
-                  <h3>
+                  <h3 className="movieButton">
                     <a href="#pablo" onClick={e => e.preventDefault()}>
                       {data.title}
                     </a>
-                    <h4 className={classes.cardCategory}>Release date:{data.release_date}</h4>
+                    <Button  color="info" round ><LocalMoviesIcon /> Watch Trailer </Button>
                   </h3>
                 </CardBody>
               </Card>
