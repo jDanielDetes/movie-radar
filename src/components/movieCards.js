@@ -15,11 +15,15 @@ import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
 
 
 
-const useStyles = makeStyles(styles);
-
+ const useStyles = makeStyles(styles);
+ 
 function MovieCards() {
+    
     const classes = useStyles();
     const [movie,setMovie] = React.useState([])
+
+    
+
     useEffect(() =>{
         axios.get(API)
         .then(res =>{

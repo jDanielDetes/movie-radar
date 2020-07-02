@@ -4,15 +4,19 @@ import * as serviceWorker from './serviceWorker';
 import { Router, Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
 import MoviePage from './views/MoviePage'
+import MyProvider from './api/movieProvider'
+
 
 var hist = createBrowserHistory();
 
 ReactDOM.render(
+  <MyProvider>
   <Router  history={hist}>
   <Switch>
   <Route path="/" component={MoviePage} />
   </Switch>
-  </Router>,
+  </Router>
+  </MyProvider>,
   document.getElementById('root')
 );
 
