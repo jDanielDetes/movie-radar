@@ -4,19 +4,23 @@ import * as serviceWorker from './serviceWorker';
 import { Router, Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
 import MoviePage from './views/MoviePage'
-import MyProvider from './api/movieProvider'
+import GlobalProvider from './api/GlobalProvider'
+import MovieDetails from './components/MovieDetails'
+import createHistory from './api/history'
+import NavBar from "./components/NavBar";
 
 
-var hist = createBrowserHistory();
 
 ReactDOM.render(
-  <MyProvider>
-  <Router  history={hist}>
+  <GlobalProvider>
+  <Router  history={createHistory }>
+  <NavBar/>
   <Switch>
-  <Route path="/" component={MoviePage} />
+  <Route  path="/"  exact component={MoviePage} />
+  <Route path="/MovieDetails/:id" component={MovieDetails}/>
   </Switch>
   </Router>
-  </MyProvider>,
+  </GlobalProvider>,
   document.getElementById('root')
 );
 

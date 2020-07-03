@@ -11,7 +11,7 @@ import GridItem from './Grid/GridItem'
 import axios from 'axios'
 import Button from './CustomButtons/Button';
 import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
-
+import history from '../api/history'
 
 
 
@@ -32,10 +32,16 @@ function MovieCards() {
     },[])
     const API="https://api.themoviedb.org/3/movie/now_playing?api_key=69da287f8d942bd5ac2693404c94e0da&language=en-US&page=1"
 
+    const grabMovieId =(id) =>{
+      console.log(id)
+    }
+
+     
     
     let test = movie.map(data =>{
         console.log(data)
         const backgroundcolor= `https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`
+
 
     return (
         <div   >
@@ -56,13 +62,13 @@ function MovieCards() {
                 </CardHeader>
                 <CardBody>
                   
-               
+                    
                
                   <h3 className="movieButton">
-                    <a href="#pablo" onClick={e => e.preventDefault()}>
+                    <a color="info">
                       {data.title}
                     </a>
-                    <Button  color="info" round ><LocalMoviesIcon /> Watch Trailer </Button>
+                    <Button  color="info" round onClick={e => history.push(`/MovieDetails/${data.id}`)}><LocalMoviesIcon /> Watch Trailer </Button>
                   </h3>
                 </CardBody>
               </Card>

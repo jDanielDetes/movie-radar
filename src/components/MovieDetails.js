@@ -1,6 +1,6 @@
-import React, {useContext}from 'react'
+import React, {useContext, useEffect}from 'react'
 import color1 from '../images/color1.jpg'
-
+import axios from 'axios'
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui icons
@@ -15,6 +15,7 @@ import {MyContext} from "./MovieCards"
 
 import { cardTitle } from "../styles/jss/material-kit-pro-react";
 import {context} from '../api/Context'
+import MovieSlide from './MovieSlide';
 
 const style = {
     cardTitle,
@@ -39,32 +40,36 @@ const style = {
   const useStyles = makeStyles(style);
 
 
-function MovieDetails() {
+function MovieDetails(props) {
     const classes = useStyles();
-
-    //console.log({MyContext})
 
     const URL="https://image.tmdb.org/t/p/original/stmYfCUGd8Iy6kAMBr6AmWqx8Bq.jpg"
 
     const data= useContext(context);
-    //console.log(data)
+    const [movie,setMovie] = React.useState([])
 
-    let test = data.map (movie =>{
-      console.log(movie.title)
-    })
+    useEffect(() =>{
+      axios.get(API)
+      .then(res =>{
+          setMovie(res.data)
+       
+      })
+  },[])
+  const API=`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=69da287f8d942bd5ac2693404c94e0da&language=en-US"`
 
-     
+
+      console.log(movie)
 
     return (
     
         <div className="moveDetailContainer">
-            <img className="backgroundimg" src={URL} alt=""/>
+            <img className="backgroundimg" src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}  alt=""/>
             <Card  className={classes.textCenter}  >
-      <CardHeader color="info" className="movieCardHeader">Sonic The Hedgehog</CardHeader>
+      <CardHeader color="info" className="movieCardHeader">{movie.original_title}</CardHeader>
       <CardBody  className="movieDetailsBody">
-        <h4>yup</h4>
+        <h4>Release Date:{movie.release_date}</h4>
         <p>
-        Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.
+         {movie.overview}
         </p>
         <Button color="info" ><PlayArrowIcon/>Play Trailer</Button>
       </CardBody>
