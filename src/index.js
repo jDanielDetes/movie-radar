@@ -8,6 +8,7 @@ import GlobalProvider from './api/GlobalProvider'
 import MovieDetails from './components/MovieDetails'
 import createHistory from './api/history'
 import NavBar from "./components/NavBar";
+import TrailerPlayer from './components/TrailerPlayer'
 
 
 
@@ -18,6 +19,7 @@ ReactDOM.render(
   <Switch>
   <Route  path="/"  exact component={MoviePage} />
   <Route path="/MovieDetails/:id" component={MovieDetails}/>
+  <Route path="/TrailerPlayer/:id" component={TrailerPlayer}/>
   </Switch>
   </Router>
   </GlobalProvider>,

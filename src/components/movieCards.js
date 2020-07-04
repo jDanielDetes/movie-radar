@@ -21,31 +21,40 @@ function MovieCards() {
     
     const classes = useStyles();
     const [movie,setMovie] = React.useState([])
+    const [category,setCategory] =React.useState('now_playing')
 
     
 
+   
     useEffect(() =>{
         axios.get(API)
         .then(res =>{
             setMovie(res.data.results)
         })
     },[])
-    const API="https://api.themoviedb.org/3/movie/now_playing?api_key=69da287f8d942bd5ac2693404c94e0da&language=en-US&page=1"
+    const API=`https://api.themoviedb.org/3/movie/${category}?api_key=69da287f8d942bd5ac2693404c94e0da&language=en-US&page=1`
 
-    const grabMovieId =(id) =>{
-      console.log(id)
-    }
+ 
 
-     
+     var changeCategory = (TAG)=>{
+       setCategory(TAG)
+       
+       axios.get(API)
+       .then(res =>{
+           setMovie(res.data.results)
+       })
+       console.log(movie)
+     }
     
+
+
     let test = movie.map(data =>{
-        console.log(data)
+       
         const backgroundcolor= `https://image.tmdb.org/t/p/w1280/${data.backdrop_path}`
 
 
     return (
         <div   >
-          
             <GridItem  >
               <Card blog color="dark"className="cards" >
                 <CardHeader image>
@@ -79,7 +88,7 @@ function MovieCards() {
 
     return(
        <div className="movieContainer">
-            
+              <button onClick ={() =>changeCategory('popular')}>yehb</button>
             {[test]}
        </div>
      

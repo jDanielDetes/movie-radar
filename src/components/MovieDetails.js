@@ -16,6 +16,7 @@ import {MyContext} from "./MovieCards"
 import { cardTitle } from "../styles/jss/material-kit-pro-react";
 import {context} from '../api/Context'
 import MovieSlide from './MovieSlide';
+import history from '../api/history'
 
 const style = {
     cardTitle,
@@ -58,7 +59,7 @@ function MovieDetails(props) {
   const API=`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=69da287f8d942bd5ac2693404c94e0da&language=en-US"`
 
 
-      console.log(movie)
+      console.log(movie.id)
 
     return (
     
@@ -71,7 +72,7 @@ function MovieDetails(props) {
         <p>
          {movie.overview}
         </p>
-        <Button color="info" ><PlayArrowIcon/>Play Trailer</Button>
+        <Button color="info" onClick={e => history.push(`/TrailerPlayer/${movie.id}`)}><PlayArrowIcon/>Play Trailer</Button>
       </CardBody>
     
       <CardFooter>
