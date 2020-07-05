@@ -1,5 +1,6 @@
 import React from 'react'
 import Slider from "react-slick";
+import color1 from '../images/color1.jpg'
 
 
 
@@ -22,7 +23,7 @@ function MovieSlide() {
            <h2> Single Item</h2>
         <Slider {...settings}>
           <div>
-            <h3>1</h3>
+            <img src={color1} alt=""/>
           </div>
           <div>
             <h3>2</h3>

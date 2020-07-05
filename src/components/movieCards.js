@@ -2,26 +2,31 @@ import React,{useState, useEffect} from 'react'
 import CardHeader from './Card/CardHeader'
 import CardBody from './Card/CardBody'
 import Card from './Card/Card'
-import color1 from '../images/color1.jpg'
-import color2 from '../images/color2.jpg'
 import styles from '../styles/jss/sectionCards'
 import { makeStyles } from "@material-ui/core/styles";
-import GridContainer from './Grid/GridContainer'
 import GridItem from './Grid/GridItem'
 import axios from 'axios'
 import Button from './CustomButtons/Button';
 import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
 import history from '../api/history'
-
+// material-ui component
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import selectStyles from "../styles/jss/customSelectStyle.js";
 
 
  const useStyles = makeStyles(styles);
+ const SelectStyles = makeStyles(selectStyles);
  
 function MovieCards() {
     
     const classes = useStyles();
+    const select_classes = SelectStyles();
     const [movie,setMovie] = React.useState([])
     const [category,setCategory] =React.useState('now_playing')
+    const [simpleSelect, setSimpleSelect] = React.useState("1");
 
     
 
@@ -47,6 +52,11 @@ function MovieCards() {
      }
     
 
+
+
+     const handleSimple = event => {
+      setSimpleSelect(event.target.value);
+    };
 
     let test = movie.map(data =>{
        
@@ -88,7 +98,60 @@ function MovieCards() {
 
     return(
        <div className="movieContainer">
-              <button onClick ={() =>changeCategory('popular')}>yehb</button>
+              
+              <FormControl  fullWidth className={select_classes.selectFormControl}>
+          <InputLabel
+            htmlFor="simple-select"
+            className={select_classes.selectLabel}
+          >
+            Single Select
+          </InputLabel>
+          <Select 
+            MenuProps={{
+              className: select_classes.selectMenu
+            }}
+            classes={{
+              select: select_classes.select
+            }}
+            value={simpleSelect}
+            onChange={handleSimple}
+            inputProps={{
+              name: "simpleSelect",
+              id: "simple-select"
+            }}
+          >
+            
+            <MenuItem
+              classes={{
+                root: select_classes.selectMenuItem,
+                selected: select_classes.selectMenuItemSelected
+              }}
+              value="1"
+              onClick ={() =>changeCategory('now_playing')}
+            >
+              Now Playing
+            </MenuItem>
+            <MenuItem
+              classes={{
+                root: select_classes.selectMenuItem,
+                selected: select_classes.selectMenuItemSelected
+              }}
+              value="3"
+              onClick ={() =>changeCategory('popular')}
+            >
+              Popular
+            </MenuItem>
+            <MenuItem
+              classes={{
+                root: select_classes.selectMenuItem,
+                selected: select_classes.selectMenuItemSelected
+              }}
+              value="4"
+            >
+              Rome
+            </MenuItem>
+          </Select>
+        </FormControl>
             {[test]}
        </div>
      
