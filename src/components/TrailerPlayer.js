@@ -23,7 +23,7 @@ function TrailerPlayer(props) {
   return (
     <div>
       <ReactPlayer
-        width="137rem"
+        width="100%"
         height="69em"
         url={`https://www.youtube.com/watch?v=${list}`}
       />

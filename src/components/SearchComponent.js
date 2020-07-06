@@ -122,7 +122,7 @@ class SearchComponent extends React.Component {
       <div>
         <div className="input">
           <CustomInput
-            labelText="Search for a movie!"
+            labelText="Click here to search for a movie!"
             id="material"
             type="text"
             formControlProps={{
@@ -139,7 +139,7 @@ class SearchComponent extends React.Component {
             }}
           />
         </div>
-        <div>{this.renderSearchResults()}</div>
+      {this.renderSearchResults()}
       </div>
     );
   }

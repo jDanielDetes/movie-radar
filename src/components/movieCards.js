@@ -84,17 +84,19 @@ function MovieCards() {
 
   return (
     <div className="movieContainer">
+      <h2>Choose a category</h2>
       <FormControl
         fullWidth
         className={select_classes.selectFormControl}
         id="category"
       >
-        <h2>Choose a category</h2>
+        
         <InputLabel
           htmlFor="simple-select"
           className={select_classes.selectLabel}
         ></InputLabel>
         <Select
+      
           MenuProps={{
             className: select_classes.selectMenu,
           }}
@@ -142,7 +144,7 @@ function MovieCards() {
           </MenuItem>
         </Select>
       </FormControl>
-      {[test]}
+     <div className="movies"> {[test]}</div>
     </div>
   );
 }

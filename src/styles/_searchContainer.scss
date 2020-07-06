@@ -1,3 +1,7 @@
+@import './include-media';
+
+
+
 .searchContainer{
     display:flex;
     flex-direction: row;
@@ -5,11 +9,18 @@
     justify-content: center;
     justify-content: space-between;
     margin-right: 18px;
-
+    
+    @include media( "<phone") {
+       background-color: red;
+        justify-content: center;
+    }
+    
 }
 
 .input{
-   width: 50%;
-   margin-left: 30rem;
-   
+    @include media(">desktop") {
+        margin: 0 auto;
+        width: 50%;
+        
+    }
 }

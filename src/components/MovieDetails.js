@@ -22,12 +22,9 @@ const style = {
   textCenter: {
     textAlign: "center",
     zindex: "100",
-    position: "absolute !important",
-    bottom: "180px",
+    
     background: "rgba(0,0,0,0.8)",
     color: "white",
-    width: "50rem",
-    height: "30rem",
     left: "2rem",
   },
   textMuted: {
@@ -56,32 +53,40 @@ function MovieDetails(props) {
   console.log(movie.id);
 
   return (
-    <div className="moveDetailContainer">
-      <img
-        className="backgroundimg"
-        src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
-        alt=""
-      />
-      <Card className={classes.textCenter}>
-        <CardHeader color="info" className="movieCardHeader">
-          {movie.original_title}
-        </CardHeader>
-        <CardBody className="movieDetailsBody">
-          <h4>Release Date:{movie.release_date}</h4>
-          <Button
-            color="info"
-            onClick={(e) => history.push(`/TrailerPlayer/${movie.id}`)}
-          >
-            <PlayArrowIcon />
-            Play Trailer
-          </Button>
-          <h2>Overview</h2>
-          <p>{movie.overview}</p>
-        </CardBody>
 
-        <CardFooter></CardFooter>
-      </Card>
-    </div>
+      <div  className="moveDetailContainer">
+    
+       <div className="detailContainer">
+       <Card className={classes.textCenter} id="movieInfo">
+            <CardHeader color="info" className="movieCardHeader">
+              {movie.original_title}
+            </CardHeader>
+            <CardBody className="movieDetailsBody">
+              <h4>Release Date:{movie.release_date}</h4>
+              <Button
+                color="info"
+                onClick={(e) => history.push(`/TrailerPlayer/${movie.id}`)}
+              >
+                <PlayArrowIcon />
+                Play Trailer
+              </Button>
+              <h2>Overview</h2>
+              <p>{movie.overview}</p>
+            </CardBody>
+    
+            <CardFooter></CardFooter>
+          </Card>
+       <Card>
+      <img
+        className={classes.imgCard}
+        src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
+        alt="Card-img"
+      />
+    </Card >
+        
+       </div>
+      </div>
+
   );
 }
 
