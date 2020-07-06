@@ -89,7 +89,7 @@ function MovieCards() {
         className={select_classes.selectFormControl}
         id="category"
       >
-        <h2>Choose a catagory</h2>
+        <h2>Choose a category</h2>
         <InputLabel
           htmlFor="simple-select"
           className={select_classes.selectLabel}
