@@ -9,6 +9,7 @@ import MovieDetails from './components/MovieDetails'
 import createHistory from './api/history'
 import NavBar from "./components/NavBar";
 import TrailerPlayer from './components/TrailerPlayer'
+import SearchComponent from './components/SearchComponent';
 
 
 
@@ -20,6 +21,7 @@ ReactDOM.render(
   <Route  path="/"  exact component={MoviePage} />
   <Route path="/MovieDetails/:id" component={MovieDetails}/>
   <Route path="/TrailerPlayer/:id" component={TrailerPlayer}/>
+  <Route path="/SearchMovies" component = {SearchComponent}/>
   </Switch>
   </Router>
   </GlobalProvider>,

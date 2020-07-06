@@ -9,7 +9,7 @@ function MoviePage() {
   return (
     <div>
 
-      <SearchComponent/>
+     <MovieCards/>
     </div>
   );
 }

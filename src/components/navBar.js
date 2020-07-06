@@ -8,6 +8,7 @@ import Button from './CustomButtons/Button'
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search'
 import Explore from "@material-ui/icons/Explore";
+import history from '../api/history'
 
 export default function NavBar(props) {
   const useStyles = makeStyles(navbarsStyle);
@@ -36,7 +37,7 @@ export default function NavBar(props) {
           <Button
             href="#pablo"
             className={classes.navLink}
-            onClick={e => e.preventDefault()}
+         onClick={e => history.push(`/SearchMovies`)}
             color="transparent"
           >
             <SearchIcon/> Search
