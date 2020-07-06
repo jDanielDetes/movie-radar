@@ -17,7 +17,7 @@ const customSelectStyle = {
     lineHeight: "1.42857",
     textDecoration: "none",
     textTransform: "uppercase",
-    color: grayColor[1],
+    color: infoColor[1],
     letterSpacing: "0",
     "&:focus": {
       backgroundColor: "transparent"
@@ -44,7 +44,7 @@ const customSelectStyle = {
   selectLabel: {
     fontSize: "12px",
     textTransform: "uppercase",
-    color: grayColor[1] + " !important",
+    color: infoColor[1] + " !important",
     top: "8px"
   },
   selectMenu: {
